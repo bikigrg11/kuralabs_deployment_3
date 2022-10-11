@@ -15,11 +15,11 @@ pipeline {
      post {
        // only triggered when blue or green sign
        success {
-           slackSend(channel: 'alerts-testing', color: 'good', message: ":party_parrot: NOTIFICATION: BUILD SUCCESS ${newRelease} :party_parrot:")
+           slackSend(channel: 'alerts-testing', color: 'good', message: ":party_parrot: NOTIFICATION: BUILD SUCCESS  :party_parrot:")
        }
        // triggered when red sign
        failure {
-           slackSend(channel: 'alerts-testing', color: 'RED', message: ":alarm_clock: NOTIFICATION: NEW RELEASE ${newRelease} WITH SOME FAILURE :alarm_clock:")
+           slackSend(channel: 'alerts-testing', color: 'RED', message: ":alarm_clock: NOTIFICATION: NEW RELEASE  WITH SOME FAILURE :alarm_clock:")
        }
       //  // trigger every-works
       //  always {
