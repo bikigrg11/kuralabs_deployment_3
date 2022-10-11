@@ -78,6 +78,10 @@
 
 
 CI/CD Pipeline Diagram: https://github.com/bikigrg11/kuralabs_deployment_3/blob/main/deploy3.jpg
+
+<br>
+<hr>
 <img src="https://github.com/bikigrg11/kuralabs_deployment_3/blob/main/deploy3.jpg">
+<hr>
 
 
