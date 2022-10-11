@@ -21,10 +21,10 @@ pipeline {
        failure {
            slackSend(channel: 'alerts-testing', color: 'RED', message: ":alarm_clock: NOTIFICATION: NEW RELEASE ${newRelease} WITH SOME FAILURE :alarm_clock:")
        }
-       // trigger every-works
-       always {
-           slackSend ...
-       }
+      //  // trigger every-works
+      //  always {
+      //      slackSend ...
+      //  }
     }
    }
     stage ('test') {
