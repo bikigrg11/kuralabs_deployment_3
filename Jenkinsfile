@@ -38,7 +38,7 @@ pipeline {
         source test3/bin/activate
         pip install -r requirements.txt
         pip install gunicorn
-        gunicorn --workers=4 application:app -b 0.0.0.0 --daemon
+        gunicorn --workers=4 application:app --bind=0.0.0.0 --daemon
         '''
       }
     }
