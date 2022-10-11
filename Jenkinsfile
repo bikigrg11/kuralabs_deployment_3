@@ -12,19 +12,15 @@ pipeline {
         flask run &
         '''
      }
-     post {
-       // only triggered when blue or green sign
-       success {
-           slackSend(channel: 'alerts-testing', color: 'good', message: ":party_parrot: NOTIFICATION: BUILD SUCCESS  :party_parrot:")
-       }
-       // triggered when red sign
-       failure {
-           slackSend(channel: 'alerts-testing', color: 'RED', message: ":alarm_clock: NOTIFICATION: NEW RELEASE  WITH SOME FAILURE :alarm_clock:")
-       }
-      //  // trigger every-works
-      //  always {
-      //      slackSend ...
-      //  }
+    //  post {
+    //    // only triggered when blue or green sign
+    //    success {
+    //        slackSend(channel: 'alerts-testing', color: 'good', message: ":party_parrot: NOTIFICATION: BUILD SUCCESS  :party_parrot:")
+    //    }
+    //    // triggered when red sign
+    //    failure {
+    //        slackSend(channel: 'alerts-testing', color: 'RED', message: ":alarm_clock: NOTIFICATION: NEW RELEASE  WITH SOME FAILURE :alarm_clock:")
+    //    }
     }
    }
     stage ('test') {
