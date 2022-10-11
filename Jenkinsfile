@@ -37,7 +37,6 @@ pipeline {
         python3 -m venv test3
         source test3/bin/activate
         pip install -r requirements.txt
-        echo hello
         pip install gunicorn
         gunicorn --workers=4 application:app --bind=0.0.0.0 --daemon
         '''
