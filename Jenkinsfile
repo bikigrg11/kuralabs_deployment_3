@@ -58,7 +58,7 @@ pipeline {
           sh '''#!/bin/bash
           pip install -r requirements.txt
           pip install gunicorn
-          gunicorn --workers=4 application:app --bind=0.0.0.0 --daemon
+          gunicorn -w 4 application:app -b 0.0.0.0 --daemon
           '''
         }
       }
