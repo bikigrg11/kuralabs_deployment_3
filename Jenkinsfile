@@ -21,7 +21,7 @@ pipeline {
     //    failure {
     //        slackSend(channel: 'alerts-testing', color: 'RED', message: ":alarm_clock: NOTIFICATION: NEW RELEASE  WITH SOME FAILURE :alarm_clock:")
     //    }
-    }
+    //}
    }
     stage ('test') {
       steps {
