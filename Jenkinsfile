@@ -38,18 +38,29 @@ pipeline {
        
       }
     }
+    stage ('Clean'){
+      agent{label 'awsDeploy'}
+      steps{
+        sh '''#!/bin/bash
+        if [[ $(ps aux | grep -i "gunicorn" | tr -s " "| head -n 1 | cut -d " " -f 2) != 0 ]]
+        then
+          ps aux | grep -i "gunicorn" | tr -s " " | head -n 1 | cut -d " " -f 2 > pid.txt
+          kill $(cat pid.txt)
+          exit 0
+        fi
+        '''
+      }
+    }
     stage ('Deploy'){
       agent{label 'awsDeploy'}
       steps {
-        sh '''#!/bin/bash
-        git clone https://github.com/kura-labs-org/kuralabs_deployment_2.git
-        cd ./kuralabs_deployment_2
-        python3 -m venv test3
-        source test3/bin/activate
-        pip install -r requirements.txt
-        pip install gunicorn
-        gunicorn --workers=4 application:app --bind=0.0.0.0 --daemon
-        '''
+        keepRunning{
+          sh '''#!/bin/bash
+          pip install -r requirements.txt
+          pip install gunicorn
+          gunicorn --workers=4 application:app --bind=0.0.0.0 --daemon
+          '''
+        }
       }
     }
   }
